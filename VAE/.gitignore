@@ -1,0 +1,5 @@
+# package manager
+.venv
+
+# secrets
+.env
