@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   root: 'src/renderer', // Set new root where index.html is located
   plugins: [react()],
+  build: {
+    outDir: '../../dist', // Output to dist folder at project root
+  },
+  base: './', 
 })
