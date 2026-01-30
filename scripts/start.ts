@@ -28,6 +28,12 @@ function startDeveloperMode() {
             env: { ...process.env, VITE_DEV_SERVER_PORT: String(portNumber) },
         });
 
+        // start python processes
+        const pythonProcess = spawn('python', ['src/backend/main.py'], {
+            stdio: 'inherit',
+            shell: true,
+        });
+
         // Cleanup function to kill all processes
         const cleanup = () => {
             console.log('\nShutting down...');
@@ -35,6 +41,8 @@ function startDeveloperMode() {
             console.log("Vite process terminated.");
             electronProcess.kill();
             console.log("Electron process terminated.");
+            pythonProcess.kill();
+            console.log("Python process terminated.");
             process.exit();
         };
 
@@ -46,6 +54,7 @@ function startDeveloperMode() {
         // Exit when Electron closes
         electronProcess.on('close', () => {
             viteProcess.kill();
+            pythonProcess.kill();
             process.exit();
         });
     });
