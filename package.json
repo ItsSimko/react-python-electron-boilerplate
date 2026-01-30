@@ -13,8 +13,8 @@
     "build:react": "vite build",
     "build:python": "node ./scripts/build.ts python",
     "forge:start": "electron-forge start",
-    "forge:package": "electron-forge package",
-    "forge:make": "electron-forge make"
+    "forge:package": "node ./scripts/build.ts all && electron-forge package",
+    "forge:make": "node ./scripts/build.ts all && electron-forge make"
   },
   "dependencies": {
     "axios": "^1.13.4",
