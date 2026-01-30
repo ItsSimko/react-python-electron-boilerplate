@@ -8,7 +8,6 @@ switch (command) {
 }
 
 function buildPython() {
-    // Step 3: Run pyinstaller using venv's python
     const pyInstallerProcess = spawn('.venv\\Scripts\\python', ['-m', 'PyInstaller', '--onefile', 'src/backend/main.py'], {
         stdio: 'inherit',
         shell: true,
