@@ -8,7 +8,15 @@ switch (command) {
 }
 
 function buildPython() {
-    const pyInstallerProcess = spawn('.venv\\Scripts\\python', ['-m', 'PyInstaller', '--onefile', 'src/backend/main.py'], {
+    console.log("Building Python backend...");
+    const pyInstallerProcess = spawn('uv', [
+        'run', 'pyinstaller',
+        '--onefile',
+        '--collect-all=flask',
+        '--collect-all=flask_cors',
+        '--noconsole',
+        'src/backend/main.py'
+    ], {
         stdio: 'inherit',
         shell: true,
     });
