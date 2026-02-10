@@ -1,4 +1,4 @@
-# PhysioLens
+# react-python-electron-boilerplate
 
 A cross-platform desktop application built with **Electron**, **React**, and **Python (Flask)**. This application combines a modern React frontend with a Python backend, all packaged into a single Electron desktop application.
 
